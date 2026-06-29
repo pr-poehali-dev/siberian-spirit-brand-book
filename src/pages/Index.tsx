@@ -5,7 +5,7 @@ const B = 'https://cdn.poehali.dev/projects/5c0aa1d6-fba8-4491-b743-a96258e3832e
 const LOGO = 'https://cdn.poehali.dev/files/957af5f0-c629-450d-83f5-55897994d42a.jpeg';
 
 const BAIKAL_BG = B + '5f56acb0-4560-4b3a-8865-40382f020439.jpeg';
-const SHIRT_BAIKAL = B + '90d73b39-8c67-4e2c-b97f-108c1d450769.jpeg';
+const SHIRT_BAIKAL = B + 'bc91bb7f-1da1-470f-a327-5f99de13a8be.jpeg';
 
 const gallery = [
   { src: B + '19bca214-5a06-43ed-8d96-45f1f7a078c8.jpeg', tag: 'Дуэт' },
