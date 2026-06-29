@@ -418,7 +418,7 @@ const Index = () => {
       </section>
 
       {/* КОЛЛЕКЦИЯ АЛТАЙ */}
-      <section className="px-6 md:px-16 py-28 bg-forest/10 border-t border-stone/10">
+      <section className="px-6 md:px-16 py-28 bg-night border-t border-stone/10">
         <div className="max-w-6xl mx-auto">
           <Reveal>
             <SectionLabel n="06" title="Коллекция Алтай" />
@@ -428,33 +428,17 @@ const Index = () => {
             </p>
           </Reveal>
 
-          {/* Главные акценты — 3 больших кадра с наложением принтов */}
+          {/* 3 больших карточки — как у Байкала */}
           <div className="grid md:grid-cols-3 gap-4 mt-12">
             {[
-              {
-                photo: B + 'bb9f5918-a5c8-4704-8c55-4e8ca01f06eb.jpeg',
-                print: B + 'dc2dee45-0d17-4d56-b52c-89a38a4256c6.jpeg',
-                tag: 'Сила Алтая', accent: '#E8632A', desc: 'Футболка · Яркий акцент',
-              },
-              {
-                photo: B + 'feab33b1-1bda-4875-93e5-3a8f52380a50.jpeg',
-                print: B + 'd3d22148-e5eb-43a6-8a21-c1f49219d9f2.jpeg',
-                tag: 'Алтай · Юрта', accent: '#F4B73F', desc: 'Худи · Тёмная версия',
-              },
-              {
-                photo: B + '84dadf4f-8368-4e53-bfe6-3e2e1d408523.jpeg',
-                print: B + 'bb74ccaf-ca2c-49ef-ad00-8f36644eb94f.jpeg',
-                tag: 'Снежный барс', accent: '#2E6CB5', desc: 'Свитшот · Хранитель гор',
-              },
+              { src: B + 'adbab531-511b-4e6c-b1d8-da62c2809f5b.jpeg', tag: 'Сила Алтая', accent: '#E8632A', desc: 'Футболка · оранжевый' },
+              { src: B + 'bb9f5918-a5c8-4704-8c55-4e8ca01f06eb.jpeg', tag: 'Снежный барс', accent: '#F4B73F', desc: 'Худи · золотой акцент' },
+              { src: B + 'd7457ee6-54a2-463f-a3cf-a4bd96b99bfd.jpeg', tag: 'Алтай · Юрта', accent: '#2E6CB5', desc: 'Свитшот · беж' },
             ].map((item, i) => (
-              <Reveal key={item.tag} delay={i * 100}>
+              <Reveal key={item.src} delay={i * 100}>
                 <div className="group relative rounded-3xl overflow-hidden aspect-[3/4]">
-                  <img src={item.photo} alt={item.tag} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-night via-night/40 to-transparent" />
-                  {/* Принт поверх фото */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-36 h-36 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    <img src={item.print} alt="принт" className="w-full h-full object-contain mix-blend-lighten" />
-                  </div>
+                  <img src={item.src} alt={item.tag} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-night via-night/30 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <div className="w-8 h-1 rounded-full mb-3" style={{ background: item.accent }} />
                     <p className="font-display uppercase text-2xl">{item.tag}</p>
@@ -465,7 +449,7 @@ const Index = () => {
             ))}
           </div>
 
-          {/* Принты */}
+          {/* Детали */}
           <Reveal>
             <div className="flex items-center gap-5 mt-16 mb-8">
               <span className="font-accent text-gold text-2xl">принты</span>
@@ -474,69 +458,72 @@ const Index = () => {
             </div>
           </Reveal>
 
-          {/* Мозаика — фото моделей + принты */}
+          {/* Мозаика 4 колонки — только фото, как у Байкала */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <Reveal delay={0}>
               <div className="group relative rounded-2xl overflow-hidden aspect-[2/3]">
-                <img src={B + '7b6a7772-ec9c-4c64-acbe-b6a9760767ba.jpeg'} alt="Место силы" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={B + 'feab33b1-1bda-4875-93e5-3a8f52380a50.jpeg'} alt="Медведь" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-night/80 to-transparent" />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-80 transition-opacity duration-500">
-                  <img src={B + '485e74f3-8bc0-4d95-ae53-3c72bbc9a352.jpeg'} alt="принт" className="w-32 h-32 object-contain mix-blend-lighten" />
-                </div>
-                <span className="absolute bottom-3 left-3 font-display uppercase text-xs tracking-widest text-stone/90">Дух Сибири</span>
+                <span className="absolute bottom-3 left-3 font-display uppercase text-xs tracking-widest text-stone/90">Медведь</span>
               </div>
             </Reveal>
-
             <Reveal delay={80}>
               <div className="flex flex-col gap-4 h-full">
                 <div className="group relative rounded-2xl overflow-hidden flex-1">
-                  <img src={B + 'd214b63b-20f7-43d2-aca5-90c31ffbb074.jpeg'} alt="Место силы Алтай" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-night/70 to-transparent" />
-                  <span className="absolute bottom-2 left-3 font-display uppercase text-xs tracking-widest text-stone/90">Место силы</span>
-                </div>
-                <div className="group relative rounded-2xl overflow-hidden flex-1 bg-night border border-stone/10 flex items-center justify-center p-4">
-                  <img src={B + 'cec6db51-a20c-47ed-aa46-4776dce68b50.jpeg'} alt="Алтай логотип" className="max-w-full max-h-full object-contain" />
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={160}>
-              <div className="flex flex-col gap-4 h-full">
-                <div className="group relative rounded-2xl overflow-hidden flex-1 bg-stone/5 border border-stone/10 flex items-center justify-center p-4">
-                  <img src={B + '00e4f710-6982-4b8a-b998-6149e4909a9a.jpeg'} alt="Алтай место силы олень" className="max-w-full max-h-full object-contain" />
-                </div>
-                <div className="group relative rounded-2xl overflow-hidden flex-1">
                   <img src={B + 'ddd877c6-0059-4eef-9539-509bda02c343.jpeg'} alt="Синяя" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-night/70 to-transparent" />
-                  <span className="absolute bottom-2 left-3 font-display uppercase text-xs tracking-widest text-stone/90">Барс</span>
+                  <span className="absolute bottom-2 left-3 font-display uppercase text-xs tracking-widest text-stone/90">Синяя</span>
+                </div>
+                <div className="group relative rounded-2xl overflow-hidden flex-1">
+                  <img src={B + 'd214b63b-20f7-43d2-aca5-90c31ffbb074.jpeg'} alt="Женская" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-night/70 to-transparent" />
+                  <span className="absolute bottom-2 left-3 font-display uppercase text-xs tracking-widest text-stone/90">Женская</span>
                 </div>
               </div>
             </Reveal>
-
+            <Reveal delay={160}>
+              <div className="flex flex-col gap-4 h-full">
+                <div className="group relative rounded-2xl overflow-hidden flex-1">
+                  <img src={B + '84dadf4f-8368-4e53-bfe6-3e2e1d408523.jpeg'} alt="Нерпа" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-night/70 to-transparent" />
+                  <span className="absolute bottom-2 left-3 font-display uppercase text-xs tracking-widest text-stone/90">Нашивка</span>
+                </div>
+                <div className="group relative rounded-2xl overflow-hidden flex-1">
+                  <img src={B + '475c4e3b-2f40-483f-bf0a-f1994b88bbae.jpeg'} alt="Шеврон" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-night/70 to-transparent" />
+                  <span className="absolute bottom-2 left-3 font-display uppercase text-xs tracking-widest text-stone/90">Шеврон</span>
+                </div>
+              </div>
+            </Reveal>
             <Reveal delay={240}>
               <div className="group relative rounded-2xl overflow-hidden aspect-[2/3]">
-                <img src={B + 'd7457ee6-54a2-463f-a3cf-a4bd96b99bfd.jpeg'} alt="Костюм" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={B + 'b6652fa2-551b-448b-9167-9cb2e8e152d3.jpeg'} alt="Спина" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-night/80 to-transparent" />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-80 transition-opacity duration-500">
-                  <img src={B + 'ca9027f9-9527-4e49-9c3a-5d0cd2d4287c.jpeg'} alt="принт" className="w-32 h-32 object-contain mix-blend-lighten" />
-                </div>
-                <span className="absolute bottom-3 left-3 font-display uppercase text-xs tracking-widest text-stone/90">Снежный барс</span>
+                <span className="absolute bottom-3 left-3 font-display uppercase text-xs tracking-widest text-stone/90">Спина</span>
               </div>
             </Reveal>
           </div>
 
-          {/* Принты крупным планом — чёрный и белый варианты */}
+          {/* Нижняя полоса — принты крупным планом */}
           <Reveal delay={100}>
             <div className="grid grid-cols-3 gap-4 mt-4">
-              <div className="rounded-2xl bg-night border border-stone/10 p-6 flex items-center justify-center aspect-[4/3]">
-                <img src={B + 'd3d22148-e5eb-43a6-8a21-c1f49219d9f2.jpeg'} alt="Юрта чёрная" className="max-h-40 object-contain" />
-              </div>
-              <div className="rounded-2xl bg-stone/5 border border-stone/10 p-6 flex items-center justify-center aspect-[4/3]">
-                <img src={B + 'bb74ccaf-ca2c-49ef-ad00-8f36644eb94f.jpeg'} alt="Сила Алтая" className="max-h-40 object-contain" />
-              </div>
-              <div className="rounded-2xl bg-stone/5 border border-stone/10 p-6 flex items-center justify-center aspect-[4/3]">
-                <img src={B + '485e74f3-8bc0-4d95-ae53-3c72bbc9a352.jpeg'} alt="Дух Сибири" className="max-h-40 object-contain" />
-              </div>
+              {[
+                { src: B + '9048c07b-e452-467d-860f-4521de2d6954.jpeg', tag: 'Спина оранж' },
+                { src: B + 'd3d22148-e5eb-43a6-8a21-c1f49219d9f2.jpeg', tag: 'Алтай · Юрта', bg: true },
+                { src: B + 'bb74ccaf-ca2c-49ef-ad00-8f36644eb94f.jpeg', tag: 'Сила Алтая' },
+              ].map((item) => (
+                <div key={item.src} className={`group relative rounded-2xl overflow-hidden aspect-[4/3] ${item.bg ? 'bg-night flex items-center justify-center p-4' : ''}`}>
+                  {item.bg
+                    ? <img src={item.src} alt={item.tag} className="max-h-full object-contain" />
+                    : <>
+                        <img src={item.src} alt={item.tag} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-night/60 to-transparent" />
+                        <span className="absolute bottom-3 left-3 font-display uppercase text-xs tracking-widest text-stone/90">{item.tag}</span>
+                      </>
+                  }
+                  {item.bg && <span className="absolute bottom-3 left-3 font-display uppercase text-xs tracking-widest text-stone/90">{item.tag}</span>}
+                </div>
+              ))}
             </div>
           </Reveal>
         </div>
