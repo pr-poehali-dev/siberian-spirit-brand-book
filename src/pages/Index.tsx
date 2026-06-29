@@ -4,7 +4,8 @@ import Icon from '@/components/ui/icon';
 const B = 'https://cdn.poehali.dev/projects/5c0aa1d6-fba8-4491-b743-a96258e3832e/bucket/';
 const LOGO = 'https://cdn.poehali.dev/files/957af5f0-c629-450d-83f5-55897994d42a.jpeg';
 
-const PHOTO_REF = B + 'd6dfcf7a-940c-4407-a1ea-2697aee96360.jpeg';
+const BAIKAL_BG = B + '5f56acb0-4560-4b3a-8865-40382f020439.jpeg';
+const SHIRT_BAIKAL = B + '90d73b39-8c67-4e2c-b97f-108c1d450769.jpeg';
 
 const gallery = [
   { src: B + '19bca214-5a06-43ed-8d96-45f1f7a078c8.jpeg', tag: 'Дуэт' },
@@ -231,34 +232,55 @@ const Index = () => {
           <Reveal>
             <SectionLabel n="04" title="Фотосъёмка продукции" />
           </Reveal>
-          <div className="grid md:grid-cols-2 gap-12 mt-12 items-stretch">
-            <Reveal>
-              <div className="rounded-3xl overflow-hidden h-full min-h-[420px]">
-                <img src={PHOTO_REF} alt="Референс фотосъёмки" className="w-full h-full object-cover" />
-              </div>
-            </Reveal>
-            <Reveal delay={150}>
-              <div className="space-y-5">
-                {[
-                  { icon: 'Sun', t: 'Свет', d: 'Мягкий естественный дневной свет. Утро или «золотой час». Без жёстких вспышек.' },
-                  { icon: 'Mountain', t: 'Среда', d: 'Натуральные фактуры: камень, дерево, мох, вода. Природа — главный фон.' },
-                  { icon: 'Palette', t: 'Обработка', d: 'Приглушённые землистые тона, тёплый баланс белого. Контраст умеренный, без «кислотности».' },
-                  { icon: 'Crop', t: 'Композиция', d: 'Воздух вокруг продукта, диагонали, детали принта крупным планом.' },
-                  { icon: 'Ban', t: 'Избегаем', d: 'Глянцевых студийных фонов, неоновых фильтров и пластиковой ретуши.' },
-                ].map((r) => (
-                  <div key={r.t} className="flex gap-4 rounded-2xl bg-forest/20 border border-stone/10 p-5">
-                    <div className="w-11 h-11 rounded-xl bg-sunset/20 flex items-center justify-center shrink-0">
-                      <Icon name={r.icon} size={20} className="text-sunset" />
-                    </div>
-                    <div>
-                      <p className="font-display uppercase text-lg text-gold">{r.t}</p>
-                      <p className="text-stone/65 text-sm mt-1">{r.d}</p>
+          {/* Герой-кадр раздела — Байкал + продукт */}
+          <Reveal>
+            <div className="relative rounded-3xl overflow-hidden mt-12 h-[480px] md:h-[560px]">
+              <img src={BAIKAL_BG} alt="Байкал" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-r from-night/70 via-night/30 to-transparent" />
+              <div className="absolute inset-0 flex items-center">
+                <div className="px-8 md:px-14 flex flex-col md:flex-row items-center md:items-end gap-8 w-full">
+                  <div className="flex-1">
+                    <p className="font-accent text-gold text-2xl mb-2">Шаманский мыс</p>
+                    <h3 className="font-display uppercase text-3xl md:text-5xl leading-tight mb-4">
+                      Природа — <br/>лучший фон
+                    </h3>
+                    <p className="text-stone/75 max-w-sm text-base">
+                      Именно здесь рождаются наши принты. Байкал — сердце бренда,
+                      место силы, откуда берётся всё.
+                    </p>
+                  </div>
+                  <div className="w-56 md:w-72 shrink-0">
+                    <div className="rounded-2xl overflow-hidden shadow-2xl shadow-night/80">
+                      <img src={SHIRT_BAIKAL} alt="Футболка Место силы" className="w-full h-auto object-cover" />
                     </div>
                   </div>
-                ))}
+                </div>
               </div>
-            </Reveal>
-          </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={150}>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+              {[
+                { icon: 'Sun', t: 'Свет', d: 'Мягкий естественный дневной свет. Утро или «золотой час». Без жёстких вспышек.' },
+                { icon: 'Mountain', t: 'Среда', d: 'Натуральные фактуры: камень, дерево, мох, вода. Природа — главный фон.' },
+                { icon: 'Palette', t: 'Обработка', d: 'Приглушённые землистые тона, тёплый баланс белого. Без «кислотности».' },
+                { icon: 'Crop', t: 'Композиция', d: 'Воздух вокруг продукта, диагонали, детали принта крупным планом.' },
+                { icon: 'Focus', t: 'Акцент', d: 'Фирменный принт — всегда читаемым. Глубина резкости подчёркивает детали.' },
+                { icon: 'Ban', t: 'Избегаем', d: 'Глянцевых студийных фонов, неоновых фильтров и пластиковой ретуши.' },
+              ].map((r) => (
+                <div key={r.t} className="flex gap-4 rounded-2xl bg-forest/20 border border-stone/10 p-5">
+                  <div className="w-11 h-11 rounded-xl bg-sunset/20 flex items-center justify-center shrink-0">
+                    <Icon name={r.icon} size={20} className="text-sunset" />
+                  </div>
+                  <div>
+                    <p className="font-display uppercase text-lg text-gold">{r.t}</p>
+                    <p className="text-stone/65 text-sm mt-1">{r.d}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-10">
             {gallery.map((g, i) => (
