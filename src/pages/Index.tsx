@@ -90,6 +90,9 @@ const Index = () => {
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-sunset via-gold to-sunset text-6xl md:text-9xl">Сибири</span>
           </h1>
 
+          <p className="mt-8 max-w-xl text-lg md:text-xl text-stone/70 animate-fade-up" style={{ animationDelay: '260ms' }}>
+            Одежда с душой Сибири и Алтая — принты, которые <span className="text-stone">не трескаются и не выцветают</span> годами. Носи природу с собой.
+          </p>
 
           <div className="mt-12 flex flex-wrap gap-6 animate-fade-up" style={{ animationDelay: '400ms' }}>
             {[
