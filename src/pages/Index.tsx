@@ -154,21 +154,6 @@ const Index = () => {
                 <img src={LOGO} alt="Логотип Дух Сибири" className="w-72 h-72 object-contain" />
               </div>
             </Reveal>
-            <Reveal delay={240}>
-              <div className="space-y-6">
-                {[
-                  { icon: 'CheckCircle2', c: 'text-gold', t: 'Свободное поле вокруг логотипа — не меньше высоты буквы «Д».' },
-                  { icon: 'CheckCircle2', c: 'text-gold', t: 'Минимальный размер для печати — 20 мм, для экрана — 64 px.' },
-                  { icon: 'XCircle', c: 'text-sunset', t: 'Нельзя искажать пропорции, менять цвета и добавлять тени.' },
-                  { icon: 'XCircle', c: 'text-sunset', t: 'Не размещать на пёстром фоне без подложки.' },
-                ].map((r, i) => (
-                  <div key={i} className="flex gap-4 items-start">
-                    <Icon name={r.icon} size={24} className={r.c + ' shrink-0 mt-0.5'} />
-                    <p className="text-stone/80 text-lg">{r.t}</p>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
           </div>
 
           <Reveal delay={300}>
