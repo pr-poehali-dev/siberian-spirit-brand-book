@@ -418,151 +418,124 @@ const Index = () => {
       </section>
 
       {/* КОЛЛЕКЦИЯ АЛТАЙ */}
-      <section className="px-6 md:px-16 py-28 bg-night border-t border-stone/10">
+      <section className="px-6 md:px-16 py-28 bg-forest/10 border-t border-stone/10">
         <div className="max-w-6xl mx-auto">
           <Reveal>
             <SectionLabel n="06" title="Коллекция Алтай" />
             <p className="text-stone/60 mt-4 max-w-xl text-base">
-              Горы, духи, древние знаки. Каждый принт — отдельная история, вписанная в ткань.
-              Коллекция вдохновлена петроглифами, шаманскими символами и силой алтайских хребтов.
+              Горы, духи, древние знаки. Коллекция вдохновлена петроглифами,
+              шаманскими символами и силой алтайских хребтов.
             </p>
           </Reveal>
 
-          {/* Логотипы коллекции */}
-          <Reveal delay={100}>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12">
-              {[
-                { src: B + '485e74f3-8bc0-4d95-ae53-3c72bbc9a352.jpeg', name: 'Дух Сибири', sub: 'Сила древних земель', bg: 'bg-stone/5' },
-                { src: B + 'cec6db51-a20c-47ed-aa46-4776dce68b50.jpeg', name: 'Алтай', sub: 'Горный логотип', bg: 'bg-stone/5' },
-                { src: B + '00e4f710-6982-4b8a-b998-6149e4909a9a.jpeg', name: 'Алтай · Место силы', sub: 'Олень и горы', bg: 'bg-stone/5' },
-                { src: B + 'ca9027f9-9527-4e49-9c3a-5d0cd2d4287c.jpeg', name: 'Снежный барс', sub: 'Хранитель гор', bg: 'bg-stone/5' },
-                { src: B + 'd3d22148-e5eb-43a6-8a21-c1f49219d9f2.jpeg', name: 'Алтай · Юрта', sub: 'Чёрная версия', bg: 'bg-night' },
-                { src: B + 'bb74ccaf-ca2c-49ef-ad00-8f36644eb94f.jpeg', name: 'Алтай · Юрта', sub: 'Белая версия', bg: 'bg-stone/5' },
-              ].map((item, i) => (
-                <Reveal key={item.src} delay={i * 80}>
-                  <div className={`rounded-2xl overflow-hidden border border-stone/10 ${item.bg} p-6 flex flex-col items-center gap-4`}>
-                    <div className="w-full aspect-square flex items-center justify-center">
-                      <img src={item.src} alt={item.name} className="max-w-full max-h-full object-contain" />
-                    </div>
-                    <div className="text-center">
-                      <p className="font-display uppercase text-sm tracking-widest text-stone/90">{item.name}</p>
-                      <p className="text-stone/40 text-xs mt-1">{item.sub}</p>
-                    </div>
+          {/* Главные акценты — 3 больших кадра с наложением принтов */}
+          <div className="grid md:grid-cols-3 gap-4 mt-12">
+            {[
+              {
+                photo: B + 'bb9f5918-a5c8-4704-8c55-4e8ca01f06eb.jpeg',
+                print: B + 'dc2dee45-0d17-4d56-b52c-89a38a4256c6.jpeg',
+                tag: 'Сила Алтая', accent: '#E8632A', desc: 'Футболка · Яркий акцент',
+              },
+              {
+                photo: B + 'feab33b1-1bda-4875-93e5-3a8f52380a50.jpeg',
+                print: B + 'd3d22148-e5eb-43a6-8a21-c1f49219d9f2.jpeg',
+                tag: 'Алтай · Юрта', accent: '#F4B73F', desc: 'Худи · Тёмная версия',
+              },
+              {
+                photo: B + '84dadf4f-8368-4e53-bfe6-3e2e1d408523.jpeg',
+                print: B + 'bb74ccaf-ca2c-49ef-ad00-8f36644eb94f.jpeg',
+                tag: 'Снежный барс', accent: '#2E6CB5', desc: 'Свитшот · Хранитель гор',
+              },
+            ].map((item, i) => (
+              <Reveal key={item.tag} delay={i * 100}>
+                <div className="group relative rounded-3xl overflow-hidden aspect-[3/4]">
+                  <img src={item.photo} alt={item.tag} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-night via-night/40 to-transparent" />
+                  {/* Принт поверх фото */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-36 h-36 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    <img src={item.print} alt="принт" className="w-full h-full object-contain mix-blend-lighten" />
                   </div>
-                </Reveal>
-              ))}
-            </div>
-          </Reveal>
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <div className="w-8 h-1 rounded-full mb-3" style={{ background: item.accent }} />
+                    <p className="font-display uppercase text-2xl">{item.tag}</p>
+                    <p className="text-stone/60 text-sm mt-1">{item.desc}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
 
-          {/* Мокапы одежды */}
+          {/* Принты */}
           <Reveal>
-            <div className="flex items-center gap-5 mt-16 mb-10">
-              <span className="font-accent text-gold text-2xl">мокапы</span>
+            <div className="flex items-center gap-5 mt-16 mb-8">
+              <span className="font-accent text-gold text-2xl">принты</span>
               <div className="h-px flex-1 bg-stone/10" />
               <p className="text-stone/50 text-sm uppercase tracking-widest">Алтайская линейка</p>
             </div>
           </Reveal>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Футболка */}
+          {/* Мозаика — фото моделей + принты */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <Reveal delay={0}>
-              <div className="flex flex-col gap-4">
-                <div className="relative rounded-3xl overflow-hidden bg-stone/5 border border-stone/10 p-8 flex flex-col items-center min-h-[380px]">
-                  {/* Силуэт футболки */}
-                  <div className="relative w-56 h-64">
-                    <svg viewBox="0 0 200 220" className="w-full h-full" fill="none">
-                      <path d="M60 10 L20 50 L40 60 L40 200 L160 200 L160 60 L180 50 L140 10 L120 30 C115 35 85 35 80 30 Z" fill="#1a3040" stroke="#2E6CB5" strokeWidth="1.5"/>
-                      <path d="M60 10 L20 50 L40 60" fill="none" stroke="#2E6CB5" strokeWidth="1.5"/>
-                      <path d="M140 10 L180 50 L160 60" fill="none" stroke="#2E6CB5" strokeWidth="1.5"/>
-                    </svg>
-                    {/* Принт на футболке */}
-                    <div className="absolute inset-0 flex items-center justify-center pt-8">
-                      <img src={B + 'dc2dee45-0d17-4d56-b52c-89a38a4256c6.jpeg'} alt="Сила Алтая" className="w-28 h-28 object-contain mix-blend-lighten opacity-90" />
-                    </div>
-                  </div>
-                  <div className="mt-4 text-center">
-                    <p className="font-display uppercase text-lg text-stone">Футболка</p>
-                    <p className="text-stone/50 text-sm mt-1">Принт «Сила Алтая»</p>
-                  </div>
-                  <div className="flex gap-2 mt-4">
-                    {['#1a3040','#2d2d2d','#3a5a3a','#8B4513'].map(c => (
-                      <div key={c} className="w-5 h-5 rounded-full border border-stone/20" style={{ background: c }} />
-                    ))}
-                  </div>
+              <div className="group relative rounded-2xl overflow-hidden aspect-[2/3]">
+                <img src={B + '7b6a7772-ec9c-4c64-acbe-b6a9760767ba.jpeg'} alt="Место силы" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-night/80 to-transparent" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-80 transition-opacity duration-500">
+                  <img src={B + '485e74f3-8bc0-4d95-ae53-3c72bbc9a352.jpeg'} alt="принт" className="w-32 h-32 object-contain mix-blend-lighten" />
+                </div>
+                <span className="absolute bottom-3 left-3 font-display uppercase text-xs tracking-widest text-stone/90">Дух Сибири</span>
+              </div>
+            </Reveal>
+
+            <Reveal delay={80}>
+              <div className="flex flex-col gap-4 h-full">
+                <div className="group relative rounded-2xl overflow-hidden flex-1">
+                  <img src={B + 'd214b63b-20f7-43d2-aca5-90c31ffbb074.jpeg'} alt="Место силы Алтай" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-night/70 to-transparent" />
+                  <span className="absolute bottom-2 left-3 font-display uppercase text-xs tracking-widest text-stone/90">Место силы</span>
+                </div>
+                <div className="group relative rounded-2xl overflow-hidden flex-1 bg-night border border-stone/10 flex items-center justify-center p-4">
+                  <img src={B + 'cec6db51-a20c-47ed-aa46-4776dce68b50.jpeg'} alt="Алтай логотип" className="max-w-full max-h-full object-contain" />
                 </div>
               </div>
             </Reveal>
 
-            {/* Худи */}
-            <Reveal delay={100}>
-              <div className="flex flex-col gap-4">
-                <div className="relative rounded-3xl overflow-hidden bg-stone/5 border border-stone/10 p-8 flex flex-col items-center min-h-[380px]">
-                  <div className="relative w-56 h-64">
-                    <svg viewBox="0 0 220 240" className="w-full h-full" fill="none">
-                      {/* Тело худи */}
-                      <path d="M75 20 L15 65 L40 78 L40 215 L180 215 L180 78 L205 65 L145 20 C140 10 130 8 120 25 C115 32 105 32 100 25 C95 15 85 8 75 20Z" fill="#1F3320" stroke="#1F4D3A" strokeWidth="1.5"/>
-                      {/* Капюшон */}
-                      <path d="M85 20 C80 5 70 0 65 8 L50 30 C55 28 65 25 75 20Z" fill="#1F3320" stroke="#1F4D3A" strokeWidth="1.5"/>
-                      <path d="M135 20 C140 5 150 0 155 8 L170 30 C165 28 155 25 145 20Z" fill="#1F3320" stroke="#1F4D3A" strokeWidth="1.5"/>
-                      {/* Карман */}
-                      <path d="M75 155 L145 155 L145 185 L75 185Z" fill="none" stroke="#1F4D3A" strokeWidth="1.2"/>
-                    </svg>
-                    <div className="absolute inset-0 flex items-center justify-center pt-4">
-                      <img src={B + 'bb74ccaf-ca2c-49ef-ad00-8f36644eb94f.jpeg'} alt="Алтай" className="w-24 h-24 object-contain mix-blend-lighten opacity-80" />
-                    </div>
-                  </div>
-                  <div className="mt-4 text-center">
-                    <p className="font-display uppercase text-lg text-stone">Худи</p>
-                    <p className="text-stone/50 text-sm mt-1">Принт «Сила Алтая»</p>
-                  </div>
-                  <div className="flex gap-2 mt-4">
-                    {['#1F3320','#13202B','#4a3520','#2E3A4A'].map(c => (
-                      <div key={c} className="w-5 h-5 rounded-full border border-stone/20" style={{ background: c }} />
-                    ))}
-                  </div>
+            <Reveal delay={160}>
+              <div className="flex flex-col gap-4 h-full">
+                <div className="group relative rounded-2xl overflow-hidden flex-1 bg-stone/5 border border-stone/10 flex items-center justify-center p-4">
+                  <img src={B + '00e4f710-6982-4b8a-b998-6149e4909a9a.jpeg'} alt="Алтай место силы олень" className="max-w-full max-h-full object-contain" />
+                </div>
+                <div className="group relative rounded-2xl overflow-hidden flex-1">
+                  <img src={B + 'ddd877c6-0059-4eef-9539-509bda02c343.jpeg'} alt="Синяя" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-night/70 to-transparent" />
+                  <span className="absolute bottom-2 left-3 font-display uppercase text-xs tracking-widest text-stone/90">Барс</span>
                 </div>
               </div>
             </Reveal>
 
-            {/* Костюм / свитшот */}
-            <Reveal delay={200}>
-              <div className="flex flex-col gap-4">
-                <div className="relative rounded-3xl overflow-hidden bg-stone/5 border border-stone/10 p-8 flex flex-col items-center min-h-[380px]">
-                  <div className="relative w-56 h-64">
-                    <svg viewBox="0 0 220 260" className="w-full h-full" fill="none">
-                      {/* Верх костюма */}
-                      <path d="M70 15 L15 55 L38 67 L38 145 L182 145 L182 67 L205 55 L150 15 C145 8 130 12 125 20 C120 28 100 28 95 20 C90 12 75 8 70 15Z" fill="#2d1a0a" stroke="#8B4513" strokeWidth="1.5"/>
-                      {/* Штаны */}
-                      <path d="M38 145 L38 245 L100 245 L110 180 L120 245 L182 245 L182 145Z" fill="#2d1a0a" stroke="#8B4513" strokeWidth="1.5"/>
-                      {/* Линия пояса */}
-                      <line x1="38" y1="155" x2="182" y2="155" stroke="#8B4513" strokeWidth="1.5" strokeDasharray="4 3"/>
-                    </svg>
-                    <div className="absolute top-4 left-1/2 -translate-x-1/2 flex items-center justify-center w-28 h-20">
-                      <img src={B + '00e4f710-6982-4b8a-b998-6149e4909a9a.jpeg'} alt="Алтай место силы" className="w-full h-full object-contain mix-blend-lighten opacity-75" />
-                    </div>
-                  </div>
-                  <div className="mt-4 text-center">
-                    <p className="font-display uppercase text-lg text-stone">Костюм</p>
-                    <p className="text-stone/50 text-sm mt-1">Принт «Алтай · Место силы»</p>
-                  </div>
-                  <div className="flex gap-2 mt-4">
-                    {['#2d1a0a','#1a1a2e','#2a3a2a','#3a2a1a'].map(c => (
-                      <div key={c} className="w-5 h-5 rounded-full border border-stone/20" style={{ background: c }} />
-                    ))}
-                  </div>
+            <Reveal delay={240}>
+              <div className="group relative rounded-2xl overflow-hidden aspect-[2/3]">
+                <img src={B + 'd7457ee6-54a2-463f-a3cf-a4bd96b99bfd.jpeg'} alt="Костюм" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-night/80 to-transparent" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-80 transition-opacity duration-500">
+                  <img src={B + 'ca9027f9-9527-4e49-9c3a-5d0cd2d4287c.jpeg'} alt="принт" className="w-32 h-32 object-contain mix-blend-lighten" />
                 </div>
+                <span className="absolute bottom-3 left-3 font-display uppercase text-xs tracking-widest text-stone/90">Снежный барс</span>
               </div>
             </Reveal>
           </div>
 
-          {/* Принты крупным планом */}
-          <Reveal delay={150}>
-            <div className="mt-10 grid grid-cols-2 gap-4">
-              <div className="rounded-2xl bg-night border border-stone/10 p-8 flex items-center justify-center aspect-video">
-                <img src={B + 'd3d22148-e5eb-43a6-8a21-c1f49219d9f2.jpeg'} alt="Алтай юрта чёрная" className="max-h-52 object-contain" />
+          {/* Принты крупным планом — чёрный и белый варианты */}
+          <Reveal delay={100}>
+            <div className="grid grid-cols-3 gap-4 mt-4">
+              <div className="rounded-2xl bg-night border border-stone/10 p-6 flex items-center justify-center aspect-[4/3]">
+                <img src={B + 'd3d22148-e5eb-43a6-8a21-c1f49219d9f2.jpeg'} alt="Юрта чёрная" className="max-h-40 object-contain" />
               </div>
-              <div className="rounded-2xl bg-stone/5 border border-stone/10 p-8 flex items-center justify-center aspect-video">
-                <img src={B + 'ca9027f9-9527-4e49-9c3a-5d0cd2d4287c.jpeg'} alt="Снежный барс" className="max-h-52 object-contain" />
+              <div className="rounded-2xl bg-stone/5 border border-stone/10 p-6 flex items-center justify-center aspect-[4/3]">
+                <img src={B + 'bb74ccaf-ca2c-49ef-ad00-8f36644eb94f.jpeg'} alt="Сила Алтая" className="max-h-40 object-contain" />
+              </div>
+              <div className="rounded-2xl bg-stone/5 border border-stone/10 p-6 flex items-center justify-center aspect-[4/3]">
+                <img src={B + '485e74f3-8bc0-4d95-ae53-3c72bbc9a352.jpeg'} alt="Дух Сибири" className="max-h-40 object-contain" />
               </div>
             </div>
           </Reveal>
