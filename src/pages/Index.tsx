@@ -1,10 +1,21 @@
 import { useEffect, useRef, useState } from 'react';
 import Icon from '@/components/ui/icon';
 
+const B = 'https://cdn.poehali.dev/projects/5c0aa1d6-fba8-4491-b743-a96258e3832e/bucket/';
 const LOGO = 'https://cdn.poehali.dev/files/957af5f0-c629-450d-83f5-55897994d42a.jpeg';
-const SHIRT_FRONT = 'https://cdn.poehali.dev/files/b7048ad6-872d-4314-a1e5-ce55a10f0923.jpeg';
-const SHIRT_BACK = 'https://cdn.poehali.dev/files/743c2b8b-0506-4a04-bd0d-1d431ebc47a1.jpeg';
-const PHOTO_REF = 'https://cdn.poehali.dev/projects/5c0aa1d6-fba8-4491-b743-a96258e3832e/files/f5fc9046-55f6-477c-a649-5fc48fdee18f.jpg';
+
+const PHOTO_REF = B + 'd6dfcf7a-940c-4407-a1ea-2697aee96360.jpeg';
+
+const gallery = [
+  { src: B + '19bca214-5a06-43ed-8d96-45f1f7a078c8.jpeg', tag: 'Дуэт' },
+  { src: B + 'd3bac9e8-ed61-4dc2-85b0-83eeb46e6eb1.jpeg', tag: 'Место силы' },
+  { src: B + '7c973ce3-3680-493a-b7ac-b141dc70b71a.jpeg', tag: 'Байкал' },
+  { src: B + 'a4f16e86-7057-4f40-80ed-685b6246d293.jpeg', tag: 'Олень' },
+  { src: B + '8cd604de-68b3-4970-b0c6-5763179f7fc8.jpeg', tag: 'Нерпа' },
+  { src: B + '7c37fc4b-367f-47c2-b408-0e824ee62216.jpeg', tag: 'Свитшот' },
+  { src: B + '03c87a6b-2ae2-444b-8fce-adfaf57a9eac.jpeg', tag: 'Оранж' },
+  { src: B + 'a162c6e2-c489-468e-aa4c-e791d1415260.jpeg', tag: 'Худи' },
+];
 
 const palette = [
   { name: 'Лесной', hex: '#1F4D3A', use: 'Основной цвет бренда. Логотип, заголовки, крупные блоки.', dark: false },
@@ -249,11 +260,15 @@ const Index = () => {
             </Reveal>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-6 mt-10">
-            {[SHIRT_FRONT, SHIRT_BACK].map((src, i) => (
-              <Reveal key={src} delay={i * 120}>
-                <div className="rounded-3xl overflow-hidden aspect-[4/5]">
-                  <img src={src} alt="Продукция Дух Сибири" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-10">
+            {gallery.map((g, i) => (
+              <Reveal key={g.src} delay={i * 70}>
+                <div className="group relative rounded-2xl md:rounded-3xl overflow-hidden aspect-[3/4]">
+                  <img src={g.src} alt={g.tag} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-night/70 via-transparent to-transparent" />
+                  <span className="absolute bottom-3 left-3 font-display uppercase text-xs tracking-widest text-stone bg-night/50 backdrop-blur px-3 py-1 rounded-full">
+                    {g.tag}
+                  </span>
                 </div>
               </Reveal>
             ))}
