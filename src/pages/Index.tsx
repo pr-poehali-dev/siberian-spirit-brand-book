@@ -39,6 +39,13 @@ const palette = [
   { name: 'Камень', hex: '#E9E4D8', use: 'Светлый фон и основной текст на тёмном.', dark: true },
 ];
 
+const paletteAltai = [
+  { name: 'Катунь', hex: '#3BBFA3', use: 'Бирюза вод Катуни. Акцент коллекции Алтай, принты и детали.', dark: true },
+  { name: 'Маральник', hex: '#C0306A', use: 'Малиновый цвет цветения маральника. Яркий сезонный акцент.', dark: false },
+  { name: 'Белуха', hex: '#A8C8E8', use: 'Голубой ледников Белухи. Холодный, чистый, воздушный тон.', dark: true },
+  { name: 'Душа Алтая', hex: '#F5F0E8', use: 'Белый — душа Алтая. Чистота, свет, простор горных вершин.', dark: true },
+];
+
 function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const [shown, setShown] = useState(false);
@@ -177,8 +184,46 @@ const Index = () => {
           <Reveal>
             <SectionLabel n="02" title="Цветовая палитра" />
           </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+
+          {/* Байкал */}
+          <Reveal delay={80}>
+            <div className="flex items-center gap-5 mt-12 mb-8">
+              <span className="font-accent text-gold text-xl">Байкал</span>
+              <div className="h-px flex-1 bg-stone/10" />
+              <p className="text-stone/40 text-xs uppercase tracking-widest">Основная палитра</p>
+            </div>
+          </Reveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {palette.map((c, i) => (
+              <Reveal key={c.hex} delay={i * 80}>
+                <div className="group rounded-3xl overflow-hidden border border-stone/10 hover:-translate-y-1 transition-transform">
+                  <div className="h-40 flex items-end p-5" style={{ background: c.hex }}>
+                    <span className={`font-display uppercase text-2xl ${c.dark ? 'text-night' : 'text-stone'}`}>
+                      {c.name}
+                    </span>
+                  </div>
+                  <div className="p-5 bg-forest/15">
+                    <div className="flex items-center justify-between mb-3">
+                      <code className="text-sm tracking-widest text-gold">{c.hex}</code>
+                      <Icon name="Copy" size={16} className="text-stone/40 group-hover:text-stone/80 transition-colors" />
+                    </div>
+                    <p className="text-stone/65 text-sm leading-relaxed">{c.use}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* Алтай */}
+          <Reveal delay={80}>
+            <div className="flex items-center gap-5 mt-16 mb-8">
+              <span className="font-accent text-gold text-xl">Алтай</span>
+              <div className="h-px flex-1 bg-stone/10" />
+              <p className="text-stone/40 text-xs uppercase tracking-widest">Алтайская палитра</p>
+            </div>
+          </Reveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {paletteAltai.map((c, i) => (
               <Reveal key={c.hex} delay={i * 80}>
                 <div className="group rounded-3xl overflow-hidden border border-stone/10 hover:-translate-y-1 transition-transform">
                   <div className="h-40 flex items-end p-5" style={{ background: c.hex }}>
