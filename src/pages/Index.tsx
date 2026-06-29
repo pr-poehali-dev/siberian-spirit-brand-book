@@ -18,6 +18,18 @@ const gallery = [
   { src: B + 'a162c6e2-c489-468e-aa4c-e791d1415260.jpeg', tag: 'Худи' },
 ];
 
+const baikal = [
+  { src: B + '7b6a7772-ec9c-4c64-acbe-b6a9760767ba.jpeg', tag: 'Место силы', size: 'tall' },
+  { src: B + '46d0d8b6-c37a-48d4-8330-0708491482a2.jpeg', tag: 'Чёрная', size: 'normal' },
+  { src: B + 'd214b63b-20f7-43d2-aca5-90c31ffbb074.jpeg', tag: 'Женская', size: 'normal' },
+  { src: B + '84dadf4f-8368-4e53-bfe6-3e2e1d408523.jpeg', tag: 'Нерпа', size: 'tall' },
+  { src: B + 'ddd877c6-0059-4eef-9539-509bda02c343.jpeg', tag: 'Синяя', size: 'normal' },
+  { src: B + 'feab33b1-1bda-4875-93e5-3a8f52380a50.jpeg', tag: 'Медведь', size: 'normal' },
+  { src: B + 'adbab531-511b-4e6c-b1d8-da62c2809f5b.jpeg', tag: 'Закат', size: 'tall' },
+  { src: B + 'd7457ee6-54a2-463f-a3cf-a4bd96b99bfd.jpeg', tag: 'Беж', size: 'normal' },
+  { src: B + '13cf4dab-305c-4a16-bed6-8c9231d1306a.jpeg', tag: 'Спина', size: 'normal' },
+];
+
 const palette = [
   { name: 'Лесной', hex: '#1F4D3A', use: 'Основной цвет бренда. Логотип, заголовки, крупные блоки.', dark: false },
   { name: 'Ночное небо', hex: '#13202B', use: 'Фон, глубина, премиальность. База тёмных макетов.', dark: false },
@@ -295,6 +307,113 @@ const Index = () => {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* КОЛЛЕКЦИЯ БАЙКАЛ */}
+      <section className="px-6 md:px-16 py-28 bg-forest/10 border-t border-stone/10">
+        <div className="max-w-6xl mx-auto">
+          <Reveal>
+            <SectionLabel n="05" title="Коллекция Байкал" />
+            <p className="text-stone/60 mt-4 max-w-xl text-base">
+              Одежда, вдохновлённая природой Байкала. Каждая деталь — принт, нашивка, 
+              лента тесьмы — несёт в себе образ самого глубокого озера планеты.
+            </p>
+          </Reveal>
+
+          {/* Главные акценты — 3 больших кадра */}
+          <div className="grid md:grid-cols-3 gap-4 mt-12">
+            {[
+              { src: B + 'bb9f5918-a5c8-4704-8c55-4e8ca01f06eb.jpeg', tag: 'Оранжевая', accent: '#E8632A', desc: 'Яркий акцент сезона' },
+              { src: B + 'feab33b1-1bda-4875-93e5-3a8f52380a50.jpeg', tag: 'Медведь', accent: '#13202B', desc: 'Суровый характер' },
+              { src: B + '84dadf4f-8368-4e53-bfe6-3e2e1d408523.jpeg', tag: 'Нерпа', accent: '#2E6CB5', desc: 'Символ Байкала' },
+            ].map((item, i) => (
+              <Reveal key={item.src} delay={i * 100}>
+                <div className="group relative rounded-3xl overflow-hidden aspect-[3/4]">
+                  <img src={item.src} alt={item.tag} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-night via-night/30 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <div className="w-8 h-1 rounded-full mb-3" style={{ background: item.accent }} />
+                    <p className="font-display uppercase text-2xl">{item.tag}</p>
+                    <p className="text-stone/60 text-sm mt-1">{item.desc}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* Детали и нашивки */}
+          <Reveal>
+            <div className="flex items-center gap-5 mt-16 mb-8">
+              <span className="font-accent text-gold text-2xl">детали</span>
+              <div className="h-px flex-1 bg-stone/10" />
+              <p className="text-stone/50 text-sm uppercase tracking-widest">Знак качества</p>
+            </div>
+          </Reveal>
+
+          {/* Мозаика — разные форматы */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {/* Строка 1: tall + normal + normal + tall */}
+            <Reveal delay={0}>
+              <div className="group relative rounded-2xl overflow-hidden aspect-[2/3]">
+                <img src={B + '7b6a7772-ec9c-4c64-acbe-b6a9760767ba.jpeg'} alt="Место силы" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-night/80 to-transparent" />
+                <span className="absolute bottom-3 left-3 font-display uppercase text-xs tracking-widest text-stone/90">Место силы</span>
+              </div>
+            </Reveal>
+            <Reveal delay={80}>
+              <div className="flex flex-col gap-4 h-full">
+                <div className="group relative rounded-2xl overflow-hidden flex-1">
+                  <img src={B + 'd214b63b-20f7-43d2-aca5-90c31ffbb074.jpeg'} alt="Женская" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-night/70 to-transparent" />
+                  <span className="absolute bottom-2 left-3 font-display uppercase text-xs tracking-widest text-stone/90">Женская</span>
+                </div>
+                <div className="group relative rounded-2xl overflow-hidden flex-1">
+                  <img src={B + 'e1ad71fc-28e0-489e-b05f-ebdfcfe9d34d.jpeg'} alt="Спина" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-night/70 to-transparent" />
+                  <span className="absolute bottom-2 left-3 font-display uppercase text-xs tracking-widest text-stone/90">Нашивка</span>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={160}>
+              <div className="flex flex-col gap-4 h-full">
+                <div className="group relative rounded-2xl overflow-hidden flex-1">
+                  <img src={B + 'ddd877c6-0059-4eef-9539-509bda02c343.jpeg'} alt="Синяя" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-night/70 to-transparent" />
+                  <span className="absolute bottom-2 left-3 font-display uppercase text-xs tracking-widest text-stone/90">Синяя</span>
+                </div>
+                <div className="group relative rounded-2xl overflow-hidden flex-1">
+                  <img src={B + '475c4e3b-2f40-483f-bf0a-f1994b88bbae.jpeg'} alt="Профиль" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-night/70 to-transparent" />
+                  <span className="absolute bottom-2 left-3 font-display uppercase text-xs tracking-widest text-stone/90">Шеврон</span>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={240}>
+              <div className="group relative rounded-2xl overflow-hidden aspect-[2/3]">
+                <img src={B + 'd7457ee6-54a2-463f-a3cf-a4bd96b99bfd.jpeg'} alt="Беж" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-night/80 to-transparent" />
+                <span className="absolute bottom-3 left-3 font-display uppercase text-xs tracking-widest text-stone/90">Беж</span>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Горизонтальная полоса — принты крупным планом */}
+          <Reveal delay={100}>
+            <div className="grid grid-cols-3 gap-4 mt-4">
+              {[
+                { src: B + '9048c07b-e452-467d-860f-4521de2d6954.jpeg', tag: 'Спина беж' },
+                { src: B + 'b6652fa2-551b-448b-9167-9cb2e8e152d3.jpeg', tag: 'Байкал беж' },
+                { src: B + '13cf4dab-305c-4a16-bed6-8c9231d1306a.jpeg', tag: 'Спина мятная' },
+              ].map((item) => (
+                <div key={item.src} className="group relative rounded-2xl overflow-hidden aspect-[4/3]">
+                  <img src={item.src} alt={item.tag} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-night/60 to-transparent" />
+                  <span className="absolute bottom-3 left-3 font-display uppercase text-xs tracking-widest text-stone/90">{item.tag}</span>
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
