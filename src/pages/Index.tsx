@@ -596,6 +596,58 @@ const Index = () => {
         </div>
       </section>
 
+      {/* КАЧЕСТВО */}
+      <section className="px-6 md:px-16 py-28 border-t border-stone/10">
+        <div className="max-w-6xl mx-auto">
+          <Reveal>
+            <SectionLabel n="07" title="Качество" />
+          </Reveal>
+
+          <div className="grid md:grid-cols-2 gap-12 mt-14 items-center">
+            <Reveal delay={80}>
+              <div>
+                <p className="font-accent text-gold text-2xl mb-6">Качество, которое остаётся с вами надолго ✨</p>
+                <p className="text-stone/70 text-base leading-relaxed mb-4">
+                  Для нанесения принтов мы сотрудничаем с производством, которое более <span className="text-stone font-semibold">27 лет</span> специализируется на профессиональной печати по текстилю и чьи работы были отмечены на международном уровне.
+                </p>
+                <p className="text-stone/70 text-base leading-relaxed">
+                  Мы выбираем современные технологии нанесения, чтобы принты сохраняли свой внешний вид спустя годы носки.
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={160}>
+              <div className="flex flex-col gap-4">
+                {[
+                  { icon: 'ShieldCheck', text: 'не трескаются' },
+                  { icon: 'Sun', text: 'не выцветают' },
+                  { icon: 'Sparkles', text: 'сохраняют насыщенность цвета' },
+                  { icon: 'RefreshCw', text: 'остаются аккуратными даже после множества стирок' },
+                ].map((item, i) => (
+                  <Reveal key={item.text} delay={i * 60}>
+                    <div className="flex items-center gap-4 rounded-2xl bg-forest/20 border border-stone/10 px-6 py-4">
+                      <div className="w-10 h-10 rounded-xl bg-sunset/20 flex items-center justify-center shrink-0">
+                        <Icon name={item.icon} size={18} className="text-sunset" />
+                      </div>
+                      <p className="text-stone/80 text-base">• {item.text}</p>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+
+          <Reveal delay={200}>
+            <div className="mt-14 rounded-3xl bg-gradient-to-r from-forest/30 via-night/60 to-forest/30 border border-stone/10 px-10 py-10 text-center">
+              <p className="font-display uppercase text-2xl md:text-4xl text-stone leading-snug">
+                Потому что качество — это то,<br/>что остаётся с вами
+              </p>
+              <p className="text-4xl mt-4">🌄🌊</p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer className="px-6 md:px-16 py-20 border-t border-stone/10 bg-forest/10">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
