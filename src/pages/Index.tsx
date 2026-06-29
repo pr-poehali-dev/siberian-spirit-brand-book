@@ -170,6 +170,19 @@ const Index = () => {
               </div>
             </Reveal>
           </div>
+
+          <Reveal delay={300}>
+            <div className="mt-14 rounded-3xl bg-gradient-to-r from-forest/30 via-night/60 to-forest/20 border border-stone/10 px-10 py-10">
+              <p className="font-accent text-gold text-xl mb-4">Носи силу природы ✨</p>
+              <p className="text-stone/80 text-lg leading-relaxed max-w-3xl">
+                Каждый принт «Дух Сибири» создан с душой — от петроглифов Алтая до карты Байкала на груди.
+                Мы работаем с производством, которое <span className="text-stone font-semibold">27 лет</span> печатает
+                на текстиле так, что принты <span className="text-stone font-semibold">не трескаются, не выцветают</span> и
+                держат цвет после сотен стирок. Это не просто одежда —
+                это память о местах, которые меняют людей.
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 
