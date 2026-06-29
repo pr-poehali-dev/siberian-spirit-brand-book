@@ -4,8 +4,8 @@ import Icon from '@/components/ui/icon';
 const B = 'https://cdn.poehali.dev/projects/5c0aa1d6-fba8-4491-b743-a96258e3832e/bucket/';
 const LOGO = 'https://cdn.poehali.dev/files/957af5f0-c629-450d-83f5-55897994d42a.jpeg';
 
-const BAIKAL_BG = B + 'a37a3915-0b6c-4dc2-9ee1-05750d4527d0.jpeg';
-const SHIRT_BAIKAL = B + 'd0c48248-62bc-4647-89da-d8cfc9f130eb.jpeg';
+const BAIKAL_BG = B + '5f56acb0-4560-4b3a-8865-40382f020439.jpeg';
+const SHIRT_BAIKAL = B + 'bc91bb7f-1da1-470f-a327-5f99de13a8be.jpeg';
 
 const gallery = [
   { src: B + '19bca214-5a06-43ed-8d96-45f1f7a078c8.jpeg', tag: 'Дуэт' },
@@ -292,23 +292,23 @@ const Index = () => {
           {/* Герой-кадр раздела — Байкал + продукт */}
           <Reveal>
             <div className="relative rounded-3xl overflow-hidden mt-12 h-[480px] md:h-[560px]">
-              <img src={BAIKAL_BG} alt="Алтай" className="w-full h-full object-cover object-center" />
-              <div className="absolute inset-0 bg-gradient-to-r from-night/75 via-night/30 to-transparent" />
+              <img src={BAIKAL_BG} alt="Байкал" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-r from-night/70 via-night/30 to-transparent" />
               <div className="absolute inset-0 flex items-center">
                 <div className="px-8 md:px-14 flex flex-col md:flex-row items-center md:items-end gap-8 w-full">
                   <div className="flex-1">
-                    <p className="font-accent text-2xl mb-2" style={{ color: '#3BBFA3' }}>Белуха · Алтай</p>
+                    <p className="font-accent text-gold text-2xl mb-2">Шаманский мыс</p>
                     <h3 className="font-display uppercase text-3xl md:text-5xl leading-tight mb-4">
-                      Горы — <br/>лучший фон
+                      Природа — <br/>лучший фон
                     </h3>
                     <p className="text-stone/75 max-w-sm text-base">
-                      Алтай — место силы. Принты рождаются здесь, среди ледников
-                      Белухи и вечных хребтов.
+                      Именно здесь рождаются наши принты. Байкал — сердце бренда,
+                      место силы, откуда берётся всё.
                     </p>
                   </div>
                   <div className="w-56 md:w-72 shrink-0">
-                    <div className="rounded-2xl overflow-hidden shadow-2xl shadow-night/80 relative">
-                      <img src={SHIRT_BAIKAL} alt="Футболка Алтай" className="w-full h-auto object-cover" style={{ filter: 'hue-rotate(180deg) saturate(0.6) brightness(0.95)' }} />
+                    <div className="rounded-2xl overflow-hidden shadow-2xl shadow-night/80">
+                      <img src={SHIRT_BAIKAL} alt="Футболка Место силы" className="w-full h-auto object-cover" />
                     </div>
                   </div>
                 </div>
