@@ -102,6 +102,17 @@ const Index = () => {
               </div>
             ))}
           </div>
+
+          <div className="mt-10 flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: '500ms' }}>
+            <a href="tel:+79500616545" className="flex items-center gap-2 px-6 py-3 rounded-full bg-gold text-night font-semibold text-sm hover:opacity-90 transition-opacity">
+              <Icon name="Phone" size={16} />
+              +7 (950) 061-65-45
+            </a>
+            <a href="https://t.me/elena_tours" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-full border border-stone/30 text-stone text-sm hover:border-gold hover:text-gold transition-colors">
+              <Icon name="Send" size={16} />
+              @elena_tours
+            </a>
+          </div>
         </div>
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-stone/40 text-xs animate-float">
@@ -653,6 +664,16 @@ const Index = () => {
             <span className="font-display uppercase tracking-widest text-stone">Дух Сибири</span>
           </div>
           <p className="text-stone/50 text-sm">Брендбук · {new Date().getFullYear()} · место силы</p>
+          <div className="flex flex-wrap gap-4">
+            <a href="tel:+79500616545" className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gold text-night font-semibold text-sm hover:opacity-90 transition-opacity">
+              <Icon name="Phone" size={15} />
+              +7 (950) 061-65-45
+            </a>
+            <a href="https://t.me/elena_tours" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-stone/30 text-stone text-sm hover:border-gold hover:text-gold transition-colors">
+              <Icon name="Send" size={15} />
+              @elena_tours
+            </a>
+          </div>
         </div>
       </footer>
     </div>
